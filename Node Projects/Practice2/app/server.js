@@ -1,15 +1,18 @@
 const express = require("express");
+const app = express();
 const bodyParser = require("body-parser");
 const port = process.env.PORT || 3000; 
+const path = require('path');
+const http = require("http");
 var mc = require('./modal/dbConnection');
 
 
 
 
 
-const app = express();
-app.use(bodyParser.urlencoded({extended:true}));
 
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
 
 
 
@@ -22,7 +25,7 @@ app.use(function(req, res, next){
     next();
 });
 
-// app.use('/registration', router)
+
 
 
 app.listen(port, ()=>{

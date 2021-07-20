@@ -15,6 +15,8 @@ var regModal = function(regUser){
 };
 
 
+
+
 regModal.getUsers = function(req, result){
 
     console.log("into regModal");
@@ -24,7 +26,7 @@ regModal.getUsers = function(req, result){
             result(err, null);
         }else{
             result(null, res1);
-            console.log(res1);
+            // console.log(res1);
              }        
     });
 }
