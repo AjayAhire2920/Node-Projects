@@ -33,13 +33,10 @@ const appRouter = (app)=>{
 
           
      app.route('/registration/signup').get(regController.getUsers);
-     //app.route('/registration/signup').post(regController.regUsers);
-
-     app.route('/registration/signup')
-   .post(multer({storage: storage}).single("reg_logo"),regController.regUsers);
-
-
-     app.route('/registration/signup/update').post(regController.updateUsers);
+     app.route('/registration/signup').post(multer({storage: storage}).single("reg_logo"),regController.regUsers);
+     app.route('/registration/signup/update').post(multer({storage: storage}).single("reg_logo"),regController.updateUsers);
+     app.route('/registration/signup/updateWithoutImage').post(multer({storage: storage}).single(),regController.updateUsersWithoutImg);
+     app.route('/regsitration/signup/delete/:accountId').delete(regController.deleteUser);
 
 
 
